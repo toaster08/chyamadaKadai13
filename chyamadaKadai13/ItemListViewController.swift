@@ -49,9 +49,4 @@ extension ItemListViewController: UITableViewDataSource {
         cell.configure(fruits: fruits)
         return cell
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        fruitsList[indexPath.row].isChecked = fruitsList[indexPath.row].isChecked  ? false:true
-        tableView.reloadData()
-    }
 }
