@@ -7,30 +7,30 @@
 
 import UIKit
 
-struct FruitsModel {
-    var name: String = ""
-    var isChecked: Bool = false
+struct Fruit {
+    var name: String
+    var isChecked: Bool
 }
 
 final class ItemListViewController: UIViewController, UITableViewDelegate {
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            tableView.register(ItemListTableViewCell.NibName,
-                               forCellReuseIdentifier: ItemListTableViewCell.NibId)
+            tableView.register(ItemListTableViewCell.nibName,
+                               forCellReuseIdentifier: ItemListTableViewCell.nibID)
         }
     }
 
-    private var fruitsList: [FruitsModel] = []
+    private var fruitsList: [Fruit] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
 
-        fruitsList = [FruitsModel.init(name: "りんご", isChecked: false),
-                      FruitsModel.init(name: "みかん", isChecked: true),
-                      FruitsModel.init(name: "バナナ", isChecked: false),
-                      FruitsModel.init(name: "パイナップル", isChecked: true)
+        fruitsList = [Fruit(name: "りんご", isChecked: false),
+                      Fruit(name: "みかん", isChecked: true),
+                      Fruit(name: "バナナ", isChecked: false),
+                      Fruit(name: "パイナップル", isChecked: true)
         ]
     }
 }
@@ -41,12 +41,12 @@ extension ItemListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.NibId, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.nibID, for: indexPath)
                 as? ItemListTableViewCell else {
             fatalError("The dequeued cell is not instance")
         }
         let fruits = fruitsList[indexPath.row]
-        cell.configure(fruits: fruits)
+        cell.configure(fruit: fruits)
         return cell
     }
 }
