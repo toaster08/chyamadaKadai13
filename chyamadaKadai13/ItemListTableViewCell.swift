@@ -8,17 +8,17 @@
 import UIKit
 
 final class ItemListTableViewCell: UITableViewCell {
-    static let NibName = UINib(nibName: "TableViewCell", bundle: nil)
-    static let NibId = "Cell"
+    static let nibName = UINib(nibName: "TableViewCell", bundle: nil)
+    static let nibID = "Cell"
 
     @IBOutlet private weak var checkImageView: UIImageView!
     @IBOutlet private weak var itemNameLabel: UILabel!
 
-    func configure(fruits: FruitsModel) {
-        itemNameLabel.text = fruits.name
+    func configure(fruit: Fruit) {
+        itemNameLabel.text = fruit.name
 
-        switch fruits.isChecked {
-        case  true: checkImageView.image = UIImage.init(systemName: "checkmark")
+        switch fruit.isChecked {
+        case  true: checkImageView.image = UIImage(systemName: "checkmark")
         case false: checkImageView.image = nil
         }
     }
