@@ -17,22 +17,16 @@ final class ItemListViewController: UIViewController, UITableViewDelegate {
         didSet {
             tableView.register(ItemListTableViewCell.nibName,
                                forCellReuseIdentifier: ItemListTableViewCell.nibID)
+            tableView.delegate = self
+            tableView.dataSource = self
         }
     }
 
-    private var fruitsList: [Fruit] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-
-        fruitsList = [Fruit.init(name: "りんご", isChecked: false),
-                      Fruit.init(name: "みかん", isChecked: true),
-                      Fruit.init(name: "バナナ", isChecked: false),
-                      Fruit.init(name: "パイナップル", isChecked: true)
-        ]
-    }
+    private var fruitsList: [Fruit] = [Fruit(name: "りんご", isChecked: false),
+                                       Fruit(name: "みかん", isChecked: true),
+                                       Fruit(name: "バナナ", isChecked: false),
+                                       Fruit(name: "パイナップル", isChecked: true)
+    ]
 }
 
 extension ItemListViewController: UITableViewDataSource {
