@@ -10,6 +10,13 @@ import UIKit
 struct Fruit {
     var name: String = ""
     var isChecked: Bool = false
+
+    //    useCaseとして持たせても良い
+    //    var useCase: [Fruit] = [Fruit(name: "りんご", isChecked: false),
+    //                           Fruit(name: "みかん", isChecked: true),
+    //                           Fruit(name: "バナナ", isChecked: false),
+    //                           Fruit(name: "パイナップル", isChecked: true)
+    //    ]
 }
 
 final class ItemListViewController: UIViewController, UITableViewDelegate {
@@ -21,6 +28,9 @@ final class ItemListViewController: UIViewController, UITableViewDelegate {
             tableView.dataSource = self
         }
     }
+
+    // private var model = Fruit()
+    // としてmodelを保持させることも可能
 
     private var fruitsList: [Fruit] = [Fruit(name: "りんご", isChecked: false),
                                        Fruit(name: "みかん", isChecked: true),
