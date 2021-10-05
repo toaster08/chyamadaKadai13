@@ -16,12 +16,12 @@ final class ItemListTableViewCell: UITableViewCell {
 
     func configure(fruit: Fruit) {
         itemNameLabel.text = fruit.name
-        
+
         checkImageView.image = fruit.isChecked ? UIImage.init(systemName: "checkmark"):nil
-        
-//        switch fruits.isChecked {
-//        case  true: checkImageView.image = UIImage.init(systemName: "checkmark")
-//        case false: checkImageView.image = nil
-//        }
+
+        //        switch fruits.isChecked {
+        //        case  true: checkImageView.image = UIImage.init(systemName: "checkmark")
+        //        case false: checkImageView.image = nil
+        //        }
     }
 }
